@@ -24,9 +24,9 @@ body {
 .text-orange { color: #FFA500; }
 .text-gray { color: #708090; }
 
-/* Button Styles */
+/* Enhanced Button Styles */
 .btn-orange {
-    background-color: #FFA500;
+    background: linear-gradient(135deg, #FFA500, #ff8c00);
     color: #202020;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -38,11 +38,34 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
 }
 
 .btn-orange:hover {
-    background-color: #e6940a;
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+}
+
+.btn-orange.enhanced {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+}
+
+.btn-orange.enhanced .btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-orange.enhanced:hover .btn-glow {
+    left: 100%;
 }
 
 .btn-blue {
@@ -75,11 +98,36 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-outline:hover {
     background-color: white;
     color: #4682B4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline.enhanced {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline.enhanced .btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline.enhanced:hover .btn-shine {
+    left: 100%;
 }
 
 .full-width {
@@ -190,7 +238,7 @@ body {
     width: 100%;
 }
 
-/* Hero Section */
+/* Enhanced Hero Section */
 .hero {
     background: linear-gradient(135deg, #4682B4 0%, #5a90c7 50%, #708090 100%);
     min-height: 100vh;
@@ -265,28 +313,87 @@ body {
     color: #d1d5db;
 }
 
+/* Enhanced Hero Visual */
 .hero-graphic {
     display: flex;
     justify-content: center;
 }
 
-.hero-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.hero-visual {
+    position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
-.hero-icon {
-    font-size: 4rem;
-    text-align: center;
+.hero-image {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 255, 255, 0.1));
-    border-radius: 0.75rem;
-    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(70, 130, 180, 0.3), rgba(255, 165, 0, 0.2));
+}
+
+/* Enhanced Shipment Tracker */
+.shipment-tracker {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tracker-header h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #10b981;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
 }
 
 .shipment-status {
@@ -295,26 +402,111 @@ body {
     gap: 1rem;
 }
 
-.shipment-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.shipment-item.enhanced {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
-    padding: 0.75rem;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.shipment-item.enhanced:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.shipment-info {
+    margin-bottom: 0.75rem;
+}
+
+.shipment-id {
     color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
 }
 
-.status-transit {
+.shipment-route {
+    color: #d1d5db;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+
+.status-badge.transit {
+    background: rgba(255, 165, 0, 0.2);
     color: #FFA500;
-    font-weight: 600;
+    border: 1px solid rgba(255, 165, 0, 0.3);
 }
 
-.status-delivered {
+.status-badge.delivered {
+    background: rgba(16, 185, 129, 0.2);
     color: #10b981;
-    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.status-badge.processing {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-icon {
+    font-size: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #FFA500;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.progress-fill.delivered {
+    background: #10b981;
+}
+
+.progress-fill.processing {
+    background: #3b82f6;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ... keep existing code (Services Section styles) */
 /* Services Section */
 .services {
     padding: 5rem 0;
