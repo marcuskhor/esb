@@ -1,17 +1,19 @@
 
 import { ArrowRight, Play } from 'lucide-react';
+import heroBg from "@/assets/h1_hero.jpg";
 
 const Hero = () => {
   return (
     <section id="home" className="relative bg-gradient-to-br from-steel-blue via-blue-600 to-slate-gray min-h-screen flex items-center">
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-white animate-fade-in">
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Global
+              Eignretep
               <span className="text-orange-accent"> Logistics</span>
               <br />
               Solutions
@@ -44,25 +46,6 @@ const Hero = () => {
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-accent">99.9%</div>
                 <div className="text-sm text-gray-200">On-Time Delivery</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Image/Graphic */}
-          <div className="relative animate-slide-in">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <div className="aspect-square bg-gradient-to-br from-orange-accent/20 to-white/10 rounded-xl flex items-center justify-center">
-                <div className="text-6xl">🚛</div>
-              </div>
-              <div className="mt-6 space-y-4">
-                <div className="flex items-center justify-between bg-white/10 rounded-lg p-3">
-                  <span className="text-white">Shipment #12345</span>
-                  <span className="text-orange-accent font-semibold">In Transit</span>
-                </div>
-                <div className="flex items-center justify-between bg-white/10 rounded-lg p-3">
-                  <span className="text-white">Shipment #12346</span>
-                  <span className="text-green-400 font-semibold">Delivered</span>
-                </div>
               </div>
             </div>
           </div>

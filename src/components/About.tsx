@@ -16,7 +16,7 @@ const About = () => {
           {/* Content */}
           <div>
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-              About <span className="text-steel-blue">GlobalLogistics</span>
+              About <span className="text-steel-blue">Eignretep Group</span>
             </h2>
             <p className="text-xl text-slate-gray mb-8 leading-relaxed">
               For over 25 years, we've been at the forefront of the logistics industry, providing innovative solutions that connect businesses to global markets. Our commitment to excellence and customer satisfaction has made us a trusted partner for companies worldwide.
