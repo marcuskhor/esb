@@ -1,54 +1,65 @@
 import React, { useState } from 'react';
-import { MapPin } from 'lucide-react';
 
 const CustomMalaysiaMap = () => {
   const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
 
   const facilities = [
-    { name: "Shah Alam", x: 285, y: 180 },
-    { name: "Penang", x: 250, y: 120 },
-    { name: "Johor", x: 320, y: 280 },
-    { name: "Kuching", x: 400, y: 200 },
-    { name: "Kota Kinabalu", x: 520, y: 80 },
-    { name: "Sibu", x: 450, y: 160 },
-    { name: "Miri", x: 470, y: 100 },
-    { name: "Bintulu", x: 480, y: 140 },
-    { name: "Tawau", x: 580, y: 120 }
+    { name: "Shah Alam", x: 170, y: 220 }, // Peninsular Malaysia
+    { name: "Penang", x: 140, y: 180 }, // Peninsular Malaysia  
+    { name: "Johor", x: 190, y: 280 }, // Peninsular Malaysia
+    { name: "Kuching", x: 380, y: 240 }, // Sarawak
+    { name: "Kota Kinabalu", x: 480, y: 140 }, // Sabah
+    { name: "Sibu", x: 420, y: 220 }, // Sarawak
+    { name: "Miri", x: 440, y: 190 }, // Sarawak
+    { name: "Bintulu", x: 450, y: 210 }, // Sarawak
+    { name: "Tawau", x: 520, y: 180 } // Sabah
   ];
 
   return (
     <div className="relative bg-white rounded-lg shadow-lg overflow-hidden">
       <svg
-        viewBox="0 0 700 350"
+        viewBox="0 0 600 350"
         className="w-full h-96"
-        style={{ background: 'linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%)' }}
       >
-        {/* Malaysia outline - simplified SVG path */}
+        {/* Peninsular Malaysia */}
         <path
-          d="M200 100 L350 90 L380 120 L420 110 L480 80 L520 70 L580 85 L620 110 L640 140 L620 180 L580 200 L520 220 L480 240 L450 280 L400 300 L350 290 L320 310 L280 300 L250 280 L220 260 L200 220 L180 180 L190 140 Z"
-          fill="#22c55e"
-          fillOpacity="0.3"
+          d="M120 150 C130 140, 140 135, 155 140 C170 145, 180 150, 190 160 C200 170, 205 180, 210 195 C215 210, 220 225, 225 240 C230 255, 235 270, 230 285 C225 300, 215 310, 200 315 C185 320, 170 315, 155 310 C140 305, 125 295, 115 280 C105 265, 100 250, 105 235 C110 220, 115 205, 120 190 C125 175, 120 160, 120 150 Z"
+          fill="#4ade80"
+          fillOpacity="0.7"
           stroke="#16a34a"
-          strokeWidth="2"
+          strokeWidth="1.5"
         />
         
-        {/* Sabah (simplified) */}
+        {/* Sarawak */}
         <path
-          d="M480 60 L580 50 L620 80 L640 120 L620 160 L580 180 L540 170 L500 160 L480 140 L470 100 Z"
-          fill="#22c55e"
-          fillOpacity="0.3"
+          d="M320 200 C340 195, 360 200, 380 205 C400 210, 420 215, 440 220 C460 225, 480 230, 490 240 C500 250, 495 265, 485 275 C475 285, 460 290, 445 285 C430 280, 415 270, 400 260 C385 250, 370 240, 355 235 C340 230, 325 225, 315 215 C305 205, 310 195, 320 200 Z"
+          fill="#4ade80"
+          fillOpacity="0.7"
           stroke="#16a34a"
-          strokeWidth="2"
+          strokeWidth="1.5"
         />
         
-        {/* Sarawak (simplified) */}
+        {/* Sabah */}
         <path
-          d="M380 140 L480 130 L520 150 L540 180 L520 220 L480 240 L420 250 L380 230 L360 200 L370 170 Z"
-          fill="#22c55e"
-          fillOpacity="0.3"
+          d="M450 120 C470 115, 490 120, 510 125 C530 130, 550 135, 560 150 C570 165, 565 180, 555 190 C545 200, 530 205, 515 200 C500 195, 485 185, 475 175 C465 165, 460 150, 455 135 C450 125, 445 115, 450 120 Z"
+          fill="#4ade80"
+          fillOpacity="0.7"
           stroke="#16a34a"
-          strokeWidth="2"
+          strokeWidth="1.5"
         />
+
+        {/* South China Sea */}
+        <circle cx="270" cy="100" r="15" fill="#2563eb" fillOpacity="0.3" />
+        <text x="270" y="105" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '10px' }}>
+          South China Sea
+        </text>
+
+        {/* Strait of Malacca */}
+        <ellipse cx="100" cy="220" rx="20" ry="40" fill="#2563eb" fillOpacity="0.3" />
+        <text x="100" y="225" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '8px' }}>
+          Strait of Malacca
+        </text>
 
         {/* Facility markers */}
         {facilities.map((facility, index) => (
@@ -81,23 +92,23 @@ const CustomMalaysiaMap = () => {
               onClick={() => setSelectedFacility(selectedFacility === facility.name ? null : facility.name)}
             />
             
-            {/* Facility label on hover/selection */}
+            {/* Facility label on selection */}
             {selectedFacility === facility.name && (
               <g>
                 <rect
-                  x={facility.x - 40}
-                  y={facility.y - 40}
-                  width="80"
-                  height="24"
+                  x={facility.x - 35}
+                  y={facility.y - 35}
+                  width="70"
+                  height="20"
                   fill="white"
                   stroke="#1e40af"
                   strokeWidth="1"
-                  rx="4"
+                  rx="3"
                   className="drop-shadow-lg"
                 />
                 <text
                   x={facility.x}
-                  y={facility.y - 24}
+                  y={facility.y - 22}
                   textAnchor="middle"
                   className="text-sm font-semibold fill-steel-blue"
                   style={{ fontSize: '12px' }}
@@ -108,11 +119,6 @@ const CustomMalaysiaMap = () => {
             )}
           </g>
         ))}
-
-        {/* Water bodies (South China Sea, etc.) */}
-        <circle cx="150" cy="200" r="30" fill="#3b82f6" fillOpacity="0.3" />
-        <circle cx="480" cy="40" r="25" fill="#3b82f6" fillOpacity="0.3" />
-        <circle cx="350" cy="350" r="20" fill="#3b82f6" fillOpacity="0.3" />
       </svg>
 
       {/* Legend */}
