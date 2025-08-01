@@ -5,6 +5,8 @@ import servicesLogistics from '../assets/services-logistics.jpg';
 import servicesBuilding from '../assets/services-building.jpg';
 import servicesTech from '../assets/services-tech.jpg';
 import servicesProfessional from '../assets/services-professional.jpg';
+import servicesHeroBg from '../assets/services-hero-bg.jpg';
+import internationalForwardingBg from '../assets/international-forwarding-bg.jpg';
 
 const Services = () => {
   const services = [
@@ -72,8 +74,12 @@ const Services = () => {
         </section>
 
         {/* Main Services Grid */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
+        <section className="py-20 relative">
+          <div 
+            className="absolute inset-0 opacity-5 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${servicesHeroBg})` }}
+          ></div>
+          <div className="container mx-auto px-4 relative">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4">
                 Core <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Services</span>
@@ -134,8 +140,12 @@ const Services = () => {
         </section>
 
         {/* International Forwarding Details */}
-        <section className="py-20 bg-gradient-to-r from-primary/5 to-accent/5">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-gradient-to-r from-primary/5 to-accent/5 relative">
+          <div 
+            className="absolute inset-0 opacity-10 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${internationalForwardingBg})` }}
+          ></div>
+          <div className="container mx-auto px-4 relative">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4">
                 International <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Forwarding</span>
