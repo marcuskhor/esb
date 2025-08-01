@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MapPin, Building2, Truck, Globe } from 'lucide-react';
+import { MapPin, Building2, Truck, Globe, Shield, Heart, Target, Users } from 'lucide-react';
 
 const CustomMalaysiaMap = () => {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
@@ -162,6 +162,68 @@ const CustomMalaysiaMap = () => {
               <h4 className="text-2xl font-bold text-steel-blue mb-2">40+</h4>
               <p className="text-slate-gray font-medium">Years of Industry Excellence</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Core Values Section */}
+      <div className="relative mt-16 mb-12">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-steel-blue/3 via-orange-accent/5 to-steel-blue/3 rounded-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-steel-blue/10 to-orange-accent/10 rounded-full blur-3xl"></div>
+        
+        <div className="relative z-10 p-12">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-steel-blue via-orange-accent to-steel-blue bg-clip-text text-transparent">
+                Our Core Values
+              </span>
+            </h3>
+            <p className="text-lg text-slate-gray max-w-3xl mx-auto">
+              Built on a foundation of trust, innovation, and excellence that drives everything we do
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Reliability",
+                description: "Consistent, dependable service you can count on",
+                color: "steel-blue"
+              },
+              {
+                icon: Heart,
+                title: "Customer Focus",
+                description: "Your success is our priority in every interaction",
+                color: "orange-accent"
+              },
+              {
+                icon: Target,
+                title: "Excellence",
+                description: "Continuous improvement in all our operations",
+                color: "steel-blue"
+              },
+              {
+                icon: Users,
+                title: "Partnership",
+                description: "Building long-term relationships through trust",
+                color: "orange-accent"
+              }
+            ].map((value, index) => (
+              <div key={index} className="group relative">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-white/20 h-full">
+                  <div className={`w-16 h-16 bg-gradient-to-br from-${value.color}/20 to-${value.color}/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <value.icon className={`h-8 w-8 text-${value.color}`} />
+                  </div>
+                  <h4 className="text-xl font-bold text-text-primary mb-3">{value.title}</h4>
+                  <p className="text-slate-gray leading-relaxed">{value.description}</p>
+                </div>
+                
+                {/* Animated glow effect */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-${value.color}/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl`}></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
