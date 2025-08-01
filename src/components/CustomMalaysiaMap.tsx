@@ -4,61 +4,118 @@ const CustomMalaysiaMap = () => {
   const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
 
   const facilities = [
-    { name: "Shah Alam", x: 170, y: 220 }, // Peninsular Malaysia
-    { name: "Penang", x: 140, y: 180 }, // Peninsular Malaysia  
-    { name: "Johor", x: 190, y: 280 }, // Peninsular Malaysia
-    { name: "Kuching", x: 380, y: 240 }, // Sarawak
-    { name: "Kota Kinabalu", x: 480, y: 140 }, // Sabah
-    { name: "Sibu", x: 420, y: 220 }, // Sarawak
-    { name: "Miri", x: 440, y: 190 }, // Sarawak
-    { name: "Bintulu", x: 450, y: 210 }, // Sarawak
-    { name: "Tawau", x: 520, y: 180 } // Sabah
+    // Peninsular Malaysia
+    { name: "Shah Alam", x: 160, y: 240 }, 
+    { name: "Penang", x: 140, y: 180 }, 
+    { name: "Johor", x: 185, y: 320 }, 
+    // Sarawak
+    { name: "Kuching", x: 380, y: 280 }, 
+    { name: "Sibu", x: 420, y: 260 }, 
+    { name: "Miri", x: 440, y: 220 }, 
+    { name: "Bintulu", x: 460, y: 240 }, 
+    // Sabah
+    { name: "Kota Kinabalu", x: 520, y: 160 }, 
+    { name: "Tawau", x: 570, y: 200 }
   ];
 
   return (
     <div className="relative bg-white rounded-lg shadow-lg overflow-hidden">
       <svg
-        viewBox="0 0 600 350"
+        viewBox="0 0 650 400"
         className="w-full h-96"
         style={{ background: 'linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%)' }}
       >
-        {/* Peninsular Malaysia */}
+        {/* Peninsular Malaysia - Accurate shape */}
         <path
-          d="M120 150 C130 140, 140 135, 155 140 C170 145, 180 150, 190 160 C200 170, 205 180, 210 195 C215 210, 220 225, 225 240 C230 255, 235 270, 230 285 C225 300, 215 310, 200 315 C185 320, 170 315, 155 310 C140 305, 125 295, 115 280 C105 265, 100 250, 105 235 C110 220, 115 205, 120 190 C125 175, 120 160, 120 150 Z"
-          fill="#4ade80"
-          fillOpacity="0.7"
+          d="M 110 160 
+             C 120 150, 135 145, 150 150
+             C 165 155, 175 165, 180 180
+             C 185 195, 190 210, 195 225
+             C 200 240, 205 255, 210 270
+             C 215 285, 220 300, 215 315
+             C 210 330, 200 340, 185 345
+             C 170 350, 155 345, 140 340
+             C 125 335, 115 325, 110 310
+             C 105 295, 100 280, 105 265
+             C 110 250, 115 235, 120 220
+             C 125 205, 130 190, 125 175
+             C 120 165, 115 160, 110 160 Z"
+          fill="#22c55e"
+          fillOpacity="0.8"
           stroke="#16a34a"
-          strokeWidth="1.5"
+          strokeWidth="2"
         />
         
-        {/* Sarawak */}
+        {/* Sarawak - Accurate elongated shape along Borneo coast */}
         <path
-          d="M320 200 C340 195, 360 200, 380 205 C400 210, 420 215, 440 220 C460 225, 480 230, 490 240 C500 250, 495 265, 485 275 C475 285, 460 290, 445 285 C430 280, 415 270, 400 260 C385 250, 370 240, 355 235 C340 230, 325 225, 315 215 C305 205, 310 195, 320 200 Z"
-          fill="#4ade80"
-          fillOpacity="0.7"
+          d="M 320 240
+             C 340 235, 360 240, 380 245
+             C 400 250, 420 255, 440 260
+             C 460 265, 480 270, 500 275
+             C 520 280, 530 285, 525 295
+             C 520 305, 510 310, 495 312
+             C 480 314, 465 312, 450 310
+             C 435 308, 420 305, 405 300
+             C 390 295, 375 290, 360 285
+             C 345 280, 330 275, 320 265
+             C 315 255, 318 245, 320 240 Z"
+          fill="#22c55e"
+          fillOpacity="0.8"
           stroke="#16a34a"
-          strokeWidth="1.5"
+          strokeWidth="2"
         />
         
-        {/* Sabah */}
+        {/* Sabah - Accurate shape in northern Borneo */}
         <path
-          d="M450 120 C470 115, 490 120, 510 125 C530 130, 550 135, 560 150 C570 165, 565 180, 555 190 C545 200, 530 205, 515 200 C500 195, 485 185, 475 175 C465 165, 460 150, 455 135 C450 125, 445 115, 450 120 Z"
-          fill="#4ade80"
-          fillOpacity="0.7"
+          d="M 480 140
+             C 500 135, 520 140, 540 145
+             C 560 150, 580 155, 590 170
+             C 600 185, 595 200, 585 210
+             C 575 220, 560 225, 545 222
+             C 530 219, 515 212, 505 205
+             C 495 198, 490 185, 488 170
+             C 486 155, 485 145, 480 140 Z"
+          fill="#22c55e"
+          fillOpacity="0.8"
           stroke="#16a34a"
-          strokeWidth="1.5"
+          strokeWidth="2"
         />
 
+        {/* Brunei - Small enclave in Sarawak */}
+        <path
+          d="M 465 250 C 470 248, 475 250, 478 255 C 475 260, 470 262, 465 260 C 462 255, 463 252, 465 250 Z"
+          fill="#fbbf24"
+          fillOpacity="0.6"
+          stroke="#f59e0b"
+          strokeWidth="1"
+        />
+
+        {/* Water bodies and labels */}
         {/* South China Sea */}
-        <circle cx="270" cy="100" r="15" fill="#2563eb" fillOpacity="0.3" />
-        <text x="270" y="105" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '10px' }}>
+        <circle cx="280" cy="120" r="25" fill="#3b82f6" fillOpacity="0.2" />
+        <text x="280" y="125" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '11px' }}>
           South China Sea
         </text>
 
         {/* Strait of Malacca */}
-        <ellipse cx="100" cy="220" rx="20" ry="40" fill="#2563eb" fillOpacity="0.3" />
-        <text x="100" y="225" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '8px' }}>
-          Strait of Malacca
+        <ellipse cx="80" cy="240" rx="25" ry="60" fill="#3b82f6" fillOpacity="0.2" />
+        <text x="80" y="245" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '10px' }}>
+          Strait of
+        </text>
+        <text x="80" y="255" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '10px' }}>
+          Malacca
+        </text>
+
+        {/* Sulu Sea */}
+        <circle cx="550" cy="100" r="20" fill="#3b82f6" fillOpacity="0.2" />
+        <text x="550" y="105" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '10px' }}>
+          Sulu Sea
+        </text>
+
+        {/* Celebes Sea */}
+        <circle cx="590" cy="250" r="18" fill="#3b82f6" fillOpacity="0.2" />
+        <text x="590" y="255" textAnchor="middle" className="text-xs fill-blue-600" style={{ fontSize: '9px' }}>
+          Celebes Sea
         </text>
 
         {/* Facility markers */}
@@ -96,19 +153,19 @@ const CustomMalaysiaMap = () => {
             {selectedFacility === facility.name && (
               <g>
                 <rect
-                  x={facility.x - 35}
+                  x={facility.x - 40}
                   y={facility.y - 35}
-                  width="70"
-                  height="20"
+                  width="80"
+                  height="22"
                   fill="white"
                   stroke="#1e40af"
                   strokeWidth="1"
-                  rx="3"
+                  rx="4"
                   className="drop-shadow-lg"
                 />
                 <text
                   x={facility.x}
-                  y={facility.y - 22}
+                  y={facility.y - 20}
                   textAnchor="middle"
                   className="text-sm font-semibold fill-steel-blue"
                   style={{ fontSize: '12px' }}
@@ -119,6 +176,17 @@ const CustomMalaysiaMap = () => {
             )}
           </g>
         ))}
+
+        {/* Regional labels */}
+        <text x="160" y="380" textAnchor="middle" className="text-sm font-bold fill-green-700" style={{ fontSize: '14px' }}>
+          Peninsular Malaysia
+        </text>
+        <text x="420" y="380" textAnchor="middle" className="text-sm font-bold fill-green-700" style={{ fontSize: '14px' }}>
+          Sarawak
+        </text>
+        <text x="540" y="380" textAnchor="middle" className="text-sm font-bold fill-green-700" style={{ fontSize: '14px' }}>
+          Sabah
+        </text>
       </svg>
 
       {/* Legend */}
@@ -133,19 +201,14 @@ const CustomMalaysiaMap = () => {
 
       {/* Facilities List */}
       <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg border max-w-xs">
-        <h5 className="font-semibold text-steel-blue text-sm mb-2">Facility Locations:</h5>
-        <div className="grid grid-cols-2 gap-1 text-xs text-slate-gray">
-          {facilities.map((facility, index) => (
-            <div 
-              key={index}
-              className={`cursor-pointer hover:text-steel-blue transition-colors ${
-                selectedFacility === facility.name ? 'text-steel-blue font-semibold' : ''
-              }`}
-              onClick={() => setSelectedFacility(selectedFacility === facility.name ? null : facility.name)}
-            >
-              • {facility.name}
-            </div>
-          ))}
+        <h5 className="font-semibold text-steel-blue text-sm mb-2">Our Facilities:</h5>
+        <div className="space-y-1 text-xs text-slate-gray">
+          <div className="font-medium text-green-700">Peninsular Malaysia:</div>
+          <div className="ml-2">• Shah Alam • Penang • Johor</div>
+          <div className="font-medium text-green-700 mt-2">Sarawak:</div>
+          <div className="ml-2">• Kuching • Sibu • Miri • Bintulu</div>
+          <div className="font-medium text-green-700 mt-2">Sabah:</div>
+          <div className="ml-2">• Kota Kinabalu • Tawau</div>
         </div>
       </div>
     </div>
