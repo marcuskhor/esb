@@ -78,12 +78,8 @@ const Services = () => {
         </section>
 
         {/* Main Services Grid */}
-        <section className="py-20 relative">
-          <div 
-            className="absolute inset-0 opacity-5 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${servicesHeroBg})` }}
-          ></div>
-          <div className="container mx-auto px-4 relative">
+        <section className="py-20">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4">
                 Core <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Services</span>
