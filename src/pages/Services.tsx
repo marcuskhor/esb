@@ -5,7 +5,7 @@ import servicesLogistics from '../assets/services-logistics.jpg';
 import servicesBuilding from '../assets/services-building.jpg';
 import servicesTech from '../assets/services-tech.jpg';
 import servicesProfessional from '../assets/services-professional.jpg';
-import servicesHeroBg from '../assets/services-hero-bg.jpg';
+import servicesHeroBg from '../assets/services-hero-bg-new.jpg';
 import internationalForwardingBg from '../assets/international-forwarding-bg.jpg';
 
 const Services = () => {
