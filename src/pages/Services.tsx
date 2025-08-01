@@ -6,7 +6,7 @@ import servicesBuilding from '../assets/services-building.jpg';
 import servicesTech from '../assets/services-tech.jpg';
 import servicesProfessional from '../assets/services-professional.jpg';
 import servicesHeroBg from '../assets/services-hero-bg-new.jpg';
-import internationalForwardingBg from '../assets/international-forwarding-bg.jpg';
+import internationalForwardingBg from '../assets/international-forwarding-bg-new.jpg';
 
 const Services = () => {
   const services = [
@@ -146,7 +146,7 @@ const Services = () => {
         {/* International Forwarding Details */}
         <section className="py-20 bg-gradient-to-r from-primary/5 to-accent/5 relative">
           <div 
-            className="absolute inset-0 opacity-10 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 opacity-15 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${internationalForwardingBg})` }}
           ></div>
           <div className="container mx-auto px-4 relative">
