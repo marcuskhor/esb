@@ -30,8 +30,9 @@ const MalaysiaMap = () => {
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/light-v11',
       center: [109.6976, 3.1390], // Center of Malaysia
-      zoom: 6,
+      zoom: 6.5,
       pitch: 0,
+      interactive: true,
     });
 
     // Add navigation controls
@@ -42,49 +43,69 @@ const MalaysiaMap = () => {
       'top-right'
     );
 
-    // Wait for map to load then add markers
+    // Wait for map to load then add markers and hide labels
     map.current.on('load', () => {
+      // Hide all text labels to match the reference image
+      const layers = map.current!.getStyle().layers;
+      layers.forEach((layer) => {
+        if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
+          map.current!.setLayoutProperty(layer.id, 'visibility', 'none');
+        }
+      });
+
       facilities.forEach((facility) => {
-        // Create a custom marker element
+        // Create blue pin marker like in reference image
         const markerElement = document.createElement('div');
-        markerElement.className = 'custom-marker';
+        markerElement.className = 'facility-marker';
         markerElement.style.cssText = `
-          width: 30px;
-          height: 30px;
-          background: #ff6b35;
-          border: 3px solid white;
+          width: 24px;
+          height: 24px;
+          background: #1e40af;
+          border: 2px solid white;
           border-radius: 50%;
           cursor: pointer;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          box-shadow: 0 2px 8px rgba(30, 64, 175, 0.4);
+          position: relative;
         `;
+
+        // Add white center dot like in reference
+        const centerDot = document.createElement('div');
+        centerDot.style.cssText = `
+          width: 8px;
+          height: 8px;
+          background: white;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        `;
+        markerElement.appendChild(centerDot);
 
         // Add marker to map
         const marker = new mapboxgl.Marker(markerElement)
           .setLngLat([facility.lng, facility.lat])
           .addTo(map.current!);
 
-        // Add popup
+        // Add popup on click
         const popup = new mapboxgl.Popup({
           offset: 25,
-          closeButton: false,
-          closeOnClick: false
+          closeButton: true,
+          closeOnClick: true
         })
         .setHTML(`
-          <div style="padding: 8px; font-weight: bold; color: #1e40af;">
-            ${facility.name}
+          <div style="padding: 12px; font-family: system-ui; min-width: 120px;">
+            <div style="font-weight: bold; color: #1e40af; font-size: 14px; margin-bottom: 4px;">
+              ${facility.name}
+            </div>
+            <div style="color: #64748b; font-size: 12px;">
+              ESB Facility
+            </div>
           </div>
         `);
 
-        markerElement.addEventListener('mouseenter', () => {
-          marker.setPopup(popup);
+        markerElement.addEventListener('click', () => {
           popup.addTo(map.current!);
-        });
-
-        markerElement.addEventListener('mouseleave', () => {
-          popup.remove();
         });
       });
     });
@@ -147,11 +168,11 @@ const MalaysiaMap = () => {
   return (
     <div className="relative">
       <div ref={mapContainer} className="w-full h-96 rounded-lg shadow-lg" />
-      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-        <h4 className="font-bold text-steel-blue mb-2">Our Facilities</h4>
-        <div className="flex items-center space-x-2 text-sm text-slate-gray">
-          <div className="w-3 h-3 bg-orange-accent rounded-full"></div>
-          <span>9 Strategic Locations</span>
+      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg border">
+        <h4 className="font-bold text-steel-blue mb-2 text-sm">ESB Facilities Network</h4>
+        <div className="flex items-center space-x-2 text-xs text-slate-gray">
+          <div className="w-3 h-3 bg-steel-blue border border-white rounded-full"></div>
+          <span>9 Strategic Locations Across Malaysia</span>
         </div>
       </div>
     </div>
