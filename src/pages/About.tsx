@@ -1,7 +1,7 @@
 import { CheckCircle, Award, Globe, Truck, Warehouse, Shield } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import MalaysiaMap from '../components/MalaysiaMap';
+import CustomMalaysiaMap from '../components/CustomMalaysiaMap';
 import aboutTech from '@/assets/about-tech.jpg';
 import aboutShipping from '@/assets/about-shipping.jpg';
 import aboutTeam from '@/assets/about-team.jpg';
@@ -190,9 +190,9 @@ const About = () => {
               More than 800,000 sq. ft. of covered warehouse space strategically located across Malaysia
             </p>
             
-            {/* Malaysia Map */}
+            {/* Custom Malaysia Map */}
             <div className="mb-12">
-              <MalaysiaMap />
+              <CustomMalaysiaMap />
             </div>
           </div>
           
