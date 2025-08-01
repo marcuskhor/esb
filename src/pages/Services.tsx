@@ -1,6 +1,10 @@
 import { Plane, Ship, Truck, Globe, Shield, Package, Clock, MapPin, Star } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import servicesLogistics from '../assets/services-logistics.jpg';
+import servicesBuilding from '../assets/services-building.jpg';
+import servicesTech from '../assets/services-tech.jpg';
+import servicesProfessional from '../assets/services-professional.jpg';
 
 const Services = () => {
   const services = [
@@ -9,28 +13,28 @@ const Services = () => {
       title: "Total Logistics",
       description: "From warehousing and distribution, to consolidation and freight forwarding, EILSB understands that logistics may be a complicated process and that our customers want a worry-free experience when having their products and cargoes delivered.",
       features: ["End-to-end solutions", "Worry-free experience", "Complete cargo handling"],
-      gradient: "from-blue-500 to-cyan-500"
+      image: servicesLogistics
     },
     {
       icon: Plane,
       title: "Air Freight",
       description: "Flying daily to all major cities in Sabah, Sarawak, and Labuan, our express air freight service can ensure a speedy delivery of your goods to any destination in East Malaysia.",
       features: ["Daily flights", "Express delivery", "Major cities coverage"],
-      gradient: "from-purple-500 to-pink-500"
+      image: servicesTech
     },
     {
       icon: Ship,
       title: "Sea Freight",
       description: "EILSB offers both Less than Container Load (LCL) and Full Container Load (FCL) services to Sabah, Sarawak, and Labuan. We sail weekly, making it easier to plan and manage your supply chain.",
       features: ["LCL & FCL services", "Weekly sailing", "Supply chain planning"],
-      gradient: "from-green-500 to-emerald-500"
+      image: servicesBuilding
     },
     {
       icon: Globe,
       title: "International Forwarding",
       description: "Complete import and export solutions with customs brokerage, duties payment, and haulage services. Working with global partners to ensure smooth cargo delivery worldwide.",
       features: ["Import/Export services", "Customs brokerage", "Global partnerships"],
-      gradient: "from-orange-500 to-red-500"
+      image: servicesProfessional
     }
   ];
 
@@ -83,34 +87,44 @@ const Services = () => {
               {services.map((service, index) => {
                 const IconComponent = service.icon;
                 return (
-                  <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-border/50">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}></div>
-                    
-                    <div className={`bg-gradient-to-br ${service.gradient} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <IconComponent className="h-8 w-8 text-white" />
+                  <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-border/50">
+                    {/* Image Header */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/40 transition-colors duration-300"></div>
+                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-primary/80 transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    
-                    <ul className="space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-foreground">
-                          <div className="w-2 h-2 bg-accent rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
-                          <span className="font-medium">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Content */}
+                    <div className="p-8">
+                      <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <ul className="space-y-3">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center text-foreground">
+                            <div className="w-2 h-2 bg-accent rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                            <span className="font-medium">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                    <div className="mt-6 pt-6 border-t border-border/30">
-                      <button className="text-primary font-semibold hover:text-accent transition-colors group-hover:translate-x-2 transform duration-300 flex items-center">
-                        Learn More 
-                        <Clock className="h-4 w-4 ml-2" />
-                      </button>
+                      <div className="mt-6 pt-6 border-t border-border/30">
+                        <button className="text-primary font-semibold hover:text-accent transition-colors group-hover:translate-x-2 transform duration-300 flex items-center">
+                          Learn More 
+                          <Clock className="h-4 w-4 ml-2" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
@@ -132,7 +146,7 @@ const Services = () => {
               <div className="space-y-8">
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-border/50 hover:shadow-xl transition-shadow">
                   <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-br from-green-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                    <div className="bg-primary w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-primary">Shipment to Malaysia</h3>
@@ -144,7 +158,7 @@ const Services = () => {
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-border/50 hover:shadow-xl transition-shadow">
                   <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-br from-blue-500 to-cyan-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                    <div className="bg-accent w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                       <Globe className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-primary">Shipment from Malaysia</h3>
@@ -202,7 +216,7 @@ const Services = () => {
                 const IconComponent = service.icon;
                 return (
                   <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 group">
-                    <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-primary w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="h-8 w-8 text-white" />
                     </div>
                     
