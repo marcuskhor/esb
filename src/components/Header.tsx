@@ -23,7 +23,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8">
             <a href="/" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Home</a>
-            <a href="#services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</a>
+            <a href="/services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</a>
             <a href="/about" className="text-text-primary hover:text-steel-blue transition-colors font-medium">About</a>
             <a href="#tracking" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Tracking</a>
             <a href="#contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</a>
@@ -50,7 +50,7 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
               <a href="/" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Home</a>
-              <a href="#services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</a>
+              <a href="/services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</a>
               <a href="/about" className="text-text-primary hover:text-steel-blue transition-colors font-medium">About</a>
               <a href="#tracking" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Tracking</a>
               <a href="#contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</a>
