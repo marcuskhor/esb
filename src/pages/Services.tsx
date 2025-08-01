@@ -60,6 +60,10 @@ const Services = () => {
       <div className="bg-gradient-to-br from-slate-50 to-blue-50">
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-r from-primary to-primary/80 text-white overflow-hidden">
+          <div 
+            className="absolute inset-0 opacity-20 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${servicesHeroBg})` }}
+          ></div>
           <div className="absolute inset-0 bg-primary/10"></div>
           <div className="container mx-auto px-4 relative">
             <div className="text-center max-w-4xl mx-auto">
