@@ -52,11 +52,11 @@ const CustomMalaysiaMap = () => {
               key={index}
               className={`relative cursor-pointer transform transition-all duration-500 hover:scale-105 ${
                 isSelected ? 'scale-105 z-10' : ''
-              }`}
+              } h-full`}
               onClick={() => setSelectedRegion(isSelected ? null : region.name)}
             >
               {/* Main Region Card */}
-              <div className={`${region.color} rounded-2xl p-8 text-white shadow-lg relative overflow-hidden`}>
+              <div className={`${region.color} rounded-2xl p-8 text-white shadow-lg relative overflow-hidden h-full flex flex-col justify-between min-h-[400px]`}>
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-4 right-4">
@@ -65,16 +65,18 @@ const CustomMalaysiaMap = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-4">
-                    <IconComponent className="h-8 w-8" />
-                    <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
-                      {region.facilities.length} Facilities
-                    </span>
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <IconComponent className="h-8 w-8" />
+                      <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
+                        {region.facilities.length} Facilities
+                      </span>
+                    </div>
+                    
+                    <h4 className="text-2xl font-bold mb-2">{region.name}</h4>
+                    <p className="text-white/90 mb-6">{region.description}</p>
                   </div>
-                  
-                  <h4 className="text-2xl font-bold mb-2">{region.name}</h4>
-                  <p className="text-white/90 mb-6">{region.description}</p>
                   
                   {/* Facility List */}
                   <div className="space-y-2">
@@ -114,24 +116,52 @@ const CustomMalaysiaMap = () => {
         })}
       </div>
 
-      {/* Statistics Section */}
-      <div className="bg-gradient-to-r from-steel-blue/10 to-orange-accent/10 rounded-2xl p-8">
-        <div className="grid md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold text-steel-blue mb-2">9</div>
-            <div className="text-slate-gray font-medium">Strategic Locations</div>
+      {/* Award-Winning Infrastructure Section */}
+      <div className="relative bg-gradient-to-br from-steel-blue/5 via-white to-orange-accent/5 rounded-3xl p-12 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-steel-blue/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-orange-accent/20 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-steel-blue to-steel-blue/80 rounded-2xl mb-6 shadow-lg">
+              <Building2 className="h-10 w-10 text-white" />
+            </div>
+            <h3 className="text-4xl font-bold bg-gradient-to-r from-steel-blue to-orange-accent bg-clip-text text-transparent mb-4">
+              Award-Winning Infrastructure
+            </h3>
+            <p className="text-lg text-slate-gray max-w-3xl mx-auto leading-relaxed">
+              Our state-of-the-art facilities across Malaysia represent decades of logistics excellence, 
+              combining cutting-edge technology with strategic positioning for optimal supply chain efficiency.
+            </p>
           </div>
-          <div>
-            <div className="text-4xl font-bold text-orange-accent mb-2">800K+</div>
-            <div className="text-slate-gray font-medium">Sq. Ft. Warehouse</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-steel-blue mb-2">3</div>
-            <div className="text-slate-gray font-medium">Major Regions</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-orange-accent mb-2">40+</div>
-            <div className="text-slate-gray font-medium">Years Experience</div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-steel-blue/20 to-steel-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Globe className="h-8 w-8 text-steel-blue" />
+              </div>
+              <h4 className="text-2xl font-bold text-steel-blue mb-2">800K+</h4>
+              <p className="text-slate-gray font-medium">Square Feet of Premium Warehouse Space</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-accent/20 to-orange-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="h-8 w-8 text-orange-accent" />
+              </div>
+              <h4 className="text-2xl font-bold text-orange-accent mb-2">9</h4>
+              <p className="text-slate-gray font-medium">Strategic Locations Nationwide</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-steel-blue/20 to-orange-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Truck className="h-8 w-8 text-steel-blue" />
+              </div>
+              <h4 className="text-2xl font-bold text-steel-blue mb-2">40+</h4>
+              <p className="text-slate-gray font-medium">Years of Industry Excellence</p>
+            </div>
           </div>
         </div>
       </div>
