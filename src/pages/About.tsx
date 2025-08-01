@@ -1,6 +1,11 @@
 import { CheckCircle, Award, Globe, Truck, Warehouse, Shield } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MalaysiaMap from '../components/MalaysiaMap';
+import aboutTech from '@/assets/about-tech.jpg';
+import aboutShipping from '@/assets/about-shipping.jpg';
+import aboutTeam from '@/assets/about-team.jpg';
+import aboutLandscape from '@/assets/about-landscape.jpg';
 
 const About = () => {
   const facilities = [
@@ -19,9 +24,17 @@ const About = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-steel-blue to-slate-gray py-20">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero Section with Background Image */}
+      <section className="relative bg-gradient-to-br from-steel-blue to-slate-gray py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={aboutLandscape} 
+            alt="Malaysia landscape" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-steel-blue/70"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
             About <span className="text-orange-accent">Eignretep Group</span>
           </h1>
@@ -54,36 +67,44 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-text-primary mb-6">Core Values</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-steel-blue rounded-lg flex items-center justify-center">
-                    <CheckCircle className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-text-primary">Efficient</h4>
-                    <p className="text-slate-gray">Streamlined operations for optimal results</p>
-                  </div>
+            
+            {/* Company Image */}
+            <div className="relative">
+              <img 
+                src={aboutShipping} 
+                alt="International shipping and logistics" 
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-accent rounded-full flex items-center justify-center">
+                <Truck className="h-10 w-10 text-white" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Core Values Section */}
+          <div className="mt-20 bg-gray-50 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-text-primary mb-8 text-center">Core Values</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-steel-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-white" />
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-steel-blue rounded-lg flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-text-primary">Secure</h4>
-                    <p className="text-slate-gray">Safe and reliable logistics solutions</p>
-                  </div>
+                <h4 className="font-bold text-text-primary mb-2">Efficient</h4>
+                <p className="text-slate-gray">Streamlined operations for optimal results</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-steel-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-white" />
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-steel-blue rounded-lg flex items-center justify-center">
-                    <Award className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-text-primary">Best Value</h4>
-                    <p className="text-slate-gray">Exceptional service at competitive rates</p>
-                  </div>
+                <h4 className="font-bold text-text-primary mb-2">Secure</h4>
+                <p className="text-slate-gray">Safe and reliable logistics solutions</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-steel-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="h-8 w-8 text-white" />
                 </div>
+                <h4 className="font-bold text-text-primary mb-2">Best Value</h4>
+                <p className="text-slate-gray">Exceptional service at competitive rates</p>
               </div>
             </div>
           </div>
@@ -121,19 +142,37 @@ const About = () => {
               and road transportation.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-xl font-bold text-text-primary mb-4">Technology</h4>
-                <p className="text-slate-gray">
-                  We operate our own in-house Warehouse Management (WMS) and Freight Management (FMS) Systems, 
-                  enabling real-time tracking, customized logistics planning, and seamless integration for our clients.
-                </p>
+              <div className="relative">
+                <img 
+                  src={aboutTech} 
+                  alt="Advanced technology systems" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-steel-blue/80 rounded-lg flex items-center justify-center">
+                  <div className="text-center text-white p-4">
+                    <h4 className="text-xl font-bold mb-2">Technology</h4>
+                    <p className="text-sm">
+                      We operate our own in-house Warehouse Management (WMS) and Freight Management (FMS) Systems, 
+                      enabling real-time tracking, customized logistics planning, and seamless integration for our clients.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 className="text-xl font-bold text-text-primary mb-4">Industries Served</h4>
-                <p className="text-slate-gray">
-                  Our facilities include bonded and temperature-controlled storage, co-packing, cross-docking, 
-                  and value-added services tailored to electronics, FMCG, energy, and infrastructure industries.
-                </p>
+              <div className="relative">
+                <img 
+                  src={aboutTeam} 
+                  alt="Professional team collaboration" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-orange-accent/80 rounded-lg flex items-center justify-center">
+                  <div className="text-center text-white p-4">
+                    <h4 className="text-xl font-bold mb-2">Industries Served</h4>
+                    <p className="text-sm">
+                      Our facilities include bonded and temperature-controlled storage, co-packing, cross-docking, 
+                      and value-added services tailored to electronics, FMCG, energy, and infrastructure industries.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -145,11 +184,16 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
-              Our Facilities
+              Our Facilities Network
             </h2>
-            <p className="text-xl text-slate-gray max-w-3xl mx-auto">
+            <p className="text-xl text-slate-gray max-w-3xl mx-auto mb-12">
               More than 800,000 sq. ft. of covered warehouse space strategically located across Malaysia
             </p>
+            
+            {/* Malaysia Map */}
+            <div className="mb-12">
+              <MalaysiaMap />
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
