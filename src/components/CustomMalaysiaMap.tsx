@@ -56,7 +56,7 @@ const CustomMalaysiaMap = () => {
               onClick={() => setSelectedRegion(isSelected ? null : region.name)}
             >
               {/* Main Region Card */}
-              <div className={`${region.color} rounded-2xl p-8 text-white shadow-lg relative overflow-hidden h-full flex flex-col justify-between min-h-[400px]`}>
+              <div className={`${region.color} rounded-2xl p-8 text-white shadow-lg relative overflow-hidden h-full flex flex-col justify-between min-h-[300px]`}>
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-4 right-4">
@@ -65,7 +65,7 @@ const CustomMalaysiaMap = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col justify-between h-full">
+                <div className="relative z-10 flex flex-col h-full">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <IconComponent className="h-8 w-8" />
