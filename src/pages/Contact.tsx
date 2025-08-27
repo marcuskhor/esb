@@ -1,10 +1,14 @@
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen">
+      <Header />
+      <div className="bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-steel-blue to-text-primary text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -218,6 +222,9 @@ const Contact = () => {
           </Card>
         </div>
       </div>
+      </div>
+      
+      <Footer />
     </div>
   );
 };
