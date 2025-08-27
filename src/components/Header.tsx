@@ -27,7 +27,7 @@ const Header = () => {
             <Link to="/services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</Link>
             <Link to="/about" className="text-text-primary hover:text-steel-blue transition-colors font-medium">About</Link>
             <a href="#tracking" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Tracking</a>
-            <a href="#contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</a>
+            <Link to="/contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</Link>
           </nav>
 
           {/* CTA Button */}
@@ -54,7 +54,7 @@ const Header = () => {
               <Link to="/services" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Services</Link>
               <Link to="/about" className="text-text-primary hover:text-steel-blue transition-colors font-medium">About</Link>
               <a href="#tracking" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Tracking</a>
-              <a href="#contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</a>
+              <Link to="/contact" className="text-text-primary hover:text-steel-blue transition-colors font-medium">Contact</Link>
               <button className="bg-orange-accent hover:bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold transition-colors mt-4 w-full">
                 Get Quote
               </button>
